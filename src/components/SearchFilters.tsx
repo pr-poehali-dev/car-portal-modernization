@@ -33,7 +33,7 @@ export default function SearchFilters({
               <SelectValue placeholder="Выберите марку" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Все марки</SelectItem>
+              <SelectItem value="all">Все марки</SelectItem>
               {carBrands.map(brand => (
                 <SelectItem key={brand} value={brand}>{brand}</SelectItem>
               ))}
@@ -48,7 +48,7 @@ export default function SearchFilters({
               <SelectValue placeholder="Выберите регион" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Все регионы</SelectItem>
+              <SelectItem value="all">Все регионы</SelectItem>
               {regions.map(region => (
                 <SelectItem key={region} value={region}>{region}</SelectItem>
               ))}

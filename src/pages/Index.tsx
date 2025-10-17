@@ -107,8 +107,8 @@ export default function Index() {
   const [loanTerm, setLoanTerm] = useState(60);
   const [interestRate] = useState(12.5);
 
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState('all');
+  const [selectedRegion, setSelectedRegion] = useState('all');
   const [priceRange, setPriceRange] = useState([0, 10000000]);
 
   useEffect(() => {
@@ -146,8 +146,8 @@ export default function Index() {
   const loanCalc = calculateLoan();
 
   const filteredCars = carCatalog.filter(car => {
-    const brandMatch = !selectedBrand || car.brand === selectedBrand;
-    const regionMatch = !selectedRegion || car.location === selectedRegion;
+    const brandMatch = selectedBrand === 'all' || car.brand === selectedBrand;
+    const regionMatch = selectedRegion === 'all' || car.location === selectedRegion;
     const priceMatch = car.price >= priceRange[0] && car.price <= priceRange[1];
     return brandMatch && regionMatch && priceMatch;
   });
